@@ -40,5 +40,30 @@ namespace TestHarness
             WSsupplierFactory.UpdateOrInsertAvailability(3, 9, 9, 5, 3, 6, 7, 8, 1, 14);
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            supplierFactory WSsupplierFactory = new supplierFactory();
+            
+            //Save via the web service 0=INSERT;
+            Supplier thisSupplier= WSsupplierFactory.loadS(4);
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            supplierFactory WSsupplierFactory = new supplierFactory();
+
+            serviceAvailability restoAvail = WSsupplierFactory.loadSAvail(3);
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            supplierFactory WSsupplierFactory = new supplierFactory();
+
+            //Save this relationship availability to table..0=INSERT
+           WSsupplierFactory.UpdateOrInsertAvailability(0, 2, 2, 2, 2, 2, 2, 2, 4, 14);
+        }
     }
 }

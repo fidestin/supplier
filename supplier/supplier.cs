@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Web.Script.Serialization;
+using System.Runtime.Serialization;
 
 namespace supplierEngine
 {
@@ -38,6 +40,7 @@ namespace supplierEngine
 
     public class supplierUtility
     {
+        [DataContract]
         public class Supplier
         {
             public string ID;
