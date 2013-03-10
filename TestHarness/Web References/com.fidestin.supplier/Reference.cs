@@ -39,6 +39,8 @@ namespace TestHarness.com.fidestin.supplier {
         
         private System.Threading.SendOrPostCallback SaveCampaignCustomersOperationCompleted;
         
+        private System.Threading.SendOrPostCallback SaveCampaignEmailsOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -91,6 +93,9 @@ namespace TestHarness.com.fidestin.supplier {
         
         /// <remarks/>
         public event SaveCampaignCustomersCompletedEventHandler SaveCampaignCustomersCompleted;
+        
+        /// <remarks/>
+        public event SaveCampaignEmailsCompletedEventHandler SaveCampaignEmailsCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/HelloWorld", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -250,6 +255,36 @@ namespace TestHarness.com.fidestin.supplier {
             if ((this.SaveCampaignCustomersCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.SaveCampaignCustomersCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SaveCampaignEmails", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void SaveCampaignEmails(int campaignID, string[] customerEmails) {
+            this.Invoke("SaveCampaignEmails", new object[] {
+                        campaignID,
+                        customerEmails});
+        }
+        
+        /// <remarks/>
+        public void SaveCampaignEmailsAsync(int campaignID, string[] customerEmails) {
+            this.SaveCampaignEmailsAsync(campaignID, customerEmails, null);
+        }
+        
+        /// <remarks/>
+        public void SaveCampaignEmailsAsync(int campaignID, string[] customerEmails, object userState) {
+            if ((this.SaveCampaignEmailsOperationCompleted == null)) {
+                this.SaveCampaignEmailsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSaveCampaignEmailsOperationCompleted);
+            }
+            this.InvokeAsync("SaveCampaignEmails", new object[] {
+                        campaignID,
+                        customerEmails}, this.SaveCampaignEmailsOperationCompleted, userState);
+        }
+        
+        private void OnSaveCampaignEmailsOperationCompleted(object arg) {
+            if ((this.SaveCampaignEmailsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SaveCampaignEmailsCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -675,6 +710,10 @@ namespace TestHarness.com.fidestin.supplier {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.17929")]
     public delegate void SaveCampaignCustomersCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.17929")]
+    public delegate void SaveCampaignEmailsCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 
 #pragma warning restore 1591

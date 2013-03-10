@@ -65,5 +65,18 @@ namespace TestHarness
             //Save this relationship availability to table..0=INSERT
            WSsupplierFactory.UpdateOrInsertAvailability(0, 2, 2, 2, 2, 2, 2, 2, 4, 14);
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            supplierFactory WSsupplierFactory = new supplierFactory();
+
+            string[] custEmails=new string[]{"brendan.mcardle@gmail.com","brendanjmcardle@gmail.com","somecrap@gmail.com"};
+
+
+            var a = new ArrayOfString { "test" };
+
+            //Save this relationship availability to table..0=INSERT
+            WSsupplierFactory.SaveCampaignEmails(34, custEmails);
+        }
     }
 }

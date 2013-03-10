@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Web.Script.Serialization;
 using System.Runtime.Serialization;
+using System.Net.Mail;
 
 namespace supplierEngine
 {
@@ -233,6 +234,62 @@ namespace supplierEngine
             return recipients;
         }
 
+        public void SendErrorEmail(string To, string Body, string subject)
+        {
+            try
+            {
+                string tableHTML = "<table border='0'><tr><td>" + Body + "</td></tr></table>";
+                MailMessage msg = new MailMessage("mailer@handygrub.com", To, subject, tableHTML);
+                SmtpClient client = new SmtpClient("localhost");            ///this refers to smtp.handygrub.com according to the forum.
+                string[] arrEmails;
+                char[] cDelimiter = { ';' };
+
+                arrEmails = To.Split(cDelimiter);
+
+                if (arrEmails.Length > 0)
+                {
+                    msg.To.Clear();
+                    for (int idx = 0; idx < arrEmails.Length; idx++)
+                    {
+                        msg.To.Add(arrEmails[idx].ToString());
+                    }
+                }
+                msg.IsBodyHtml = true;
+                client.Send(msg);
+            }
+            catch (Exception ex)
+            {
+                SendErrorEmail("brendan.mcardle@gmail.com", "Error \nSendEmail\n" + ex.Message, "ERROR");
+                // throw ex;
+            }
+        }
+
+        public void SaveCampaignEmails(int campaignID, string[] customerEmails)
+        {
+            string sqlQuery=string.Empty;
+
+            try
+            {
+                //first of all clear out the existing customers for THIS campaign before we insert the new list
+                sqlQuery = " delete from campaigncustomers where campaignID=" + campaignID.ToString();
+                SQLHelp.RunQuery(sqlQuery);
+
+                foreach (string customerEmail in customerEmails)
+                {
+                    sqlQuery = " exec AddEmailToCampaign '" + customerEmail + "',"  +campaignID.ToString();
+                    //Call proc to add this customer if required
+                    //and add it to the campaign...
+                    SQLHelp.RunQuery(sqlQuery);
+                }
+            }
+            catch (Exception ex)
+            {
+                SendErrorEmail("brendan.mcardle@gmail.com", "Error in SaveCampaignEmails\n " + sqlQuery, "Error Supplier Factory Web Service");
+
+                throw ex;
+            }
+
+        }
 
         //save the customers for a particular campaign
         public void SaveCampaignCustomer(int campaignID, int[] customers)

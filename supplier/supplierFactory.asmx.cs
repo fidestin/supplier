@@ -53,5 +53,12 @@ namespace supplierEngine
             campaignUtility.SaveCampaignCustomer(campaignID, customers);
         }
 
+        [WebMethod]
+        public void SaveCampaignEmails(int campaignID, string[] customerEmails)
+        {
+            CampaignUtility campaignUtility = new CampaignUtility();
+            campaignUtility.SaveCampaignEmails(campaignID, customerEmails);
+        }
+
     }
 }
