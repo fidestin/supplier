@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="supplierFactory.asmx.cs" Class="supplierEngine.supplierFactory" %>

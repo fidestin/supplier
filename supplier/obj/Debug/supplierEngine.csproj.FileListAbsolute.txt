@@ -1,0 +1,4 @@
+C:\Users\bmcardle\Documents\Visual Studio 2010\Projects\supplier\supplier\bin\supplier.dll
+C:\Users\bmcardle\Documents\Visual Studio 2010\Projects\supplier\supplier\bin\supplier.pdb
+C:\Users\bmcardle\Documents\Visual Studio 2010\Projects\supplier\supplier\obj\Debug\supplier.dll
+C:\Users\bmcardle\Documents\Visual Studio 2010\Projects\supplier\supplier\obj\Debug\supplier.pdb
