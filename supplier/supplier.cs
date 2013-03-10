@@ -29,7 +29,8 @@ namespace supplierEngine
             catch (Exception ex)
             {
                 // SendErrorEmail("brendan.mcardle@gmail.com", "FIDESTIN Error : RunQuery \n" + sqlQuery + "\n" + ex.Message, "ERROR");
-                return "Error in Runquery";
+                //return "Error in Runquery";
+                throw;
             }
         }
     }
@@ -187,7 +188,7 @@ namespace supplierEngine
         }
     }
 
-    public class campaignUtility
+    public class CampaignUtility
     {
         //define the campaignCustomer
         public class CampaignCustomer
@@ -231,12 +232,19 @@ namespace supplierEngine
 
 
         //save the customers for a particular campaign
-        public void SavCampaignCustomer(int campaignID, List<CampaignCustomer> customers)
+        public void SaveCampaignCustomer(int campaignID, int[] customers)
         {
             //first of all clear out the existing customers before we insert the new list
-            string sqlQuery = " delete from campaigncustomer where campaignID=" + campaignID.ToString();
+            string sqlQuery = " delete from campaigncustomers where campaignID=" + campaignID.ToString();
             SQLHelp.RunQuery(sqlQuery);
 
+            //Now insert for each of the customers
+            foreach (int campaignCustomerID in customers)
+            {
+               // int customerID =campaignCustomer.customerID;
+                sqlQuery = " insert into campaigncustomers values (" + campaignID + "," + campaignCustomerID + ")";
+                SQLHelp.RunQuery(sqlQuery);
+            }
         }
     }
 }

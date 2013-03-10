@@ -1,0 +1,8 @@
+C:\Users\bmcardle\Documents\Visual Studio 2010\Projects\supplier\TestHarness\bin\Debug\TestHarness.exe
+C:\Users\bmcardle\Documents\Visual Studio 2010\Projects\supplier\TestHarness\bin\Debug\TestHarness.pdb
+C:\Users\bmcardle\Documents\Visual Studio 2010\Projects\supplier\TestHarness\obj\x86\Debug\TestHarness.Form1.resources
+C:\Users\bmcardle\Documents\Visual Studio 2010\Projects\supplier\TestHarness\obj\x86\Debug\TestHarness.Properties.Resources.resources
+C:\Users\bmcardle\Documents\Visual Studio 2010\Projects\supplier\TestHarness\obj\x86\Debug\TestHarness.csproj.GenerateResource.Cache
+C:\Users\bmcardle\Documents\Visual Studio 2010\Projects\supplier\TestHarness\obj\x86\Debug\TestHarness.exe
+C:\Users\bmcardle\Documents\Visual Studio 2010\Projects\supplier\TestHarness\obj\x86\Debug\TestHarness.pdb
+C:\Users\bmcardle\Documents\Visual Studio 2010\Projects\supplier\TestHarness\bin\Debug\TestHarness.exe.config

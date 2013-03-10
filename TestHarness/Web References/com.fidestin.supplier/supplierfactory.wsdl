@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://tempuri.org/AbstractTypes" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="loadS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="supplierID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="loadSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loadSResult" type="tns:Supplier" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Supplier">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="destination" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="fbLink" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="fbImage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="twitterLink" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="twitterImage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="youTubeLink" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="youTubeImg" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="mapLink" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="mapAPICall" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="redeemText" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="tandc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="qrImg" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="offerText" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="destLink" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="loadSAvail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="servID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="loadSAvailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loadSAvailResult" type="tns:serviceAvailability" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="serviceAvailability">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="mon" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="tue" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="wed" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="thurs" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="fri" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="sat" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="sun" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="storeSupplierID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="weekID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateOrInsertAvailability">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="servID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="mon" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="tue" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="wed" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="thurs" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="fri" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="sat" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="sun" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="storeSupplierID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="weekID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateOrInsertAvailabilityResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SaveCampaignCustomers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="campaignID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="customers" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SaveCampaignCustomersResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="Supplier" nillable="true" type="tns:Supplier" />
+      <s:element name="serviceAvailability" nillable="true" type="tns:serviceAvailability" />
+    </s:schema>
+    <s:schema targetNamespace="http://tempuri.org/AbstractTypes">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="StringArray">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="String" type="s:string" />
+            </s:sequence>
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="loadSSoapIn">
+    <wsdl:part name="parameters" element="tns:loadS" />
+  </wsdl:message>
+  <wsdl:message name="loadSSoapOut">
+    <wsdl:part name="parameters" element="tns:loadSResponse" />
+  </wsdl:message>
+  <wsdl:message name="loadSAvailSoapIn">
+    <wsdl:part name="parameters" element="tns:loadSAvail" />
+  </wsdl:message>
+  <wsdl:message name="loadSAvailSoapOut">
+    <wsdl:part name="parameters" element="tns:loadSAvailResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateOrInsertAvailabilitySoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateOrInsertAvailability" />
+  </wsdl:message>
+  <wsdl:message name="UpdateOrInsertAvailabilitySoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateOrInsertAvailabilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveCampaignCustomersSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveCampaignCustomers" />
+  </wsdl:message>
+  <wsdl:message name="SaveCampaignCustomersSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveCampaignCustomersResponse" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpGetIn" />
+  <wsdl:message name="HelloWorldHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="loadSHttpGetIn">
+    <wsdl:part name="supplierID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="loadSHttpGetOut">
+    <wsdl:part name="Body" element="tns:Supplier" />
+  </wsdl:message>
+  <wsdl:message name="loadSAvailHttpGetIn">
+    <wsdl:part name="servID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="loadSAvailHttpGetOut">
+    <wsdl:part name="Body" element="tns:serviceAvailability" />
+  </wsdl:message>
+  <wsdl:message name="UpdateOrInsertAvailabilityHttpGetIn">
+    <wsdl:part name="servID" type="s:string" />
+    <wsdl:part name="mon" type="s:string" />
+    <wsdl:part name="tue" type="s:string" />
+    <wsdl:part name="wed" type="s:string" />
+    <wsdl:part name="thurs" type="s:string" />
+    <wsdl:part name="fri" type="s:string" />
+    <wsdl:part name="sat" type="s:string" />
+    <wsdl:part name="sun" type="s:string" />
+    <wsdl:part name="storeSupplierID" type="s:string" />
+    <wsdl:part name="weekID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateOrInsertAvailabilityHttpGetOut" />
+  <wsdl:message name="SaveCampaignCustomersHttpGetIn">
+    <wsdl:part name="campaignID" type="s:string" />
+    <wsdl:part name="customers" type="s1:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="SaveCampaignCustomersHttpGetOut" />
+  <wsdl:message name="HelloWorldHttpPostIn" />
+  <wsdl:message name="HelloWorldHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="loadSHttpPostIn">
+    <wsdl:part name="supplierID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="loadSHttpPostOut">
+    <wsdl:part name="Body" element="tns:Supplier" />
+  </wsdl:message>
+  <wsdl:message name="loadSAvailHttpPostIn">
+    <wsdl:part name="servID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="loadSAvailHttpPostOut">
+    <wsdl:part name="Body" element="tns:serviceAvailability" />
+  </wsdl:message>
+  <wsdl:message name="UpdateOrInsertAvailabilityHttpPostIn">
+    <wsdl:part name="servID" type="s:string" />
+    <wsdl:part name="mon" type="s:string" />
+    <wsdl:part name="tue" type="s:string" />
+    <wsdl:part name="wed" type="s:string" />
+    <wsdl:part name="thurs" type="s:string" />
+    <wsdl:part name="fri" type="s:string" />
+    <wsdl:part name="sat" type="s:string" />
+    <wsdl:part name="sun" type="s:string" />
+    <wsdl:part name="storeSupplierID" type="s:string" />
+    <wsdl:part name="weekID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateOrInsertAvailabilityHttpPostOut" />
+  <wsdl:message name="SaveCampaignCustomersHttpPostIn">
+    <wsdl:part name="campaignID" type="s:string" />
+    <wsdl:part name="customers" type="s1:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="SaveCampaignCustomersHttpPostOut" />
+  <wsdl:portType name="supplierFactorySoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="loadS">
+      <wsdl:input message="tns:loadSSoapIn" />
+      <wsdl:output message="tns:loadSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="loadSAvail">
+      <wsdl:input message="tns:loadSAvailSoapIn" />
+      <wsdl:output message="tns:loadSAvailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertAvailability">
+      <wsdl:input message="tns:UpdateOrInsertAvailabilitySoapIn" />
+      <wsdl:output message="tns:UpdateOrInsertAvailabilitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveCampaignCustomers">
+      <wsdl:input message="tns:SaveCampaignCustomersSoapIn" />
+      <wsdl:output message="tns:SaveCampaignCustomersSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="supplierFactoryHttpGet">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpGetIn" />
+      <wsdl:output message="tns:HelloWorldHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="loadS">
+      <wsdl:input message="tns:loadSHttpGetIn" />
+      <wsdl:output message="tns:loadSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="loadSAvail">
+      <wsdl:input message="tns:loadSAvailHttpGetIn" />
+      <wsdl:output message="tns:loadSAvailHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertAvailability">
+      <wsdl:input message="tns:UpdateOrInsertAvailabilityHttpGetIn" />
+      <wsdl:output message="tns:UpdateOrInsertAvailabilityHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveCampaignCustomers">
+      <wsdl:input message="tns:SaveCampaignCustomersHttpGetIn" />
+      <wsdl:output message="tns:SaveCampaignCustomersHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="supplierFactoryHttpPost">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpPostIn" />
+      <wsdl:output message="tns:HelloWorldHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="loadS">
+      <wsdl:input message="tns:loadSHttpPostIn" />
+      <wsdl:output message="tns:loadSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="loadSAvail">
+      <wsdl:input message="tns:loadSAvailHttpPostIn" />
+      <wsdl:output message="tns:loadSAvailHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertAvailability">
+      <wsdl:input message="tns:UpdateOrInsertAvailabilityHttpPostIn" />
+      <wsdl:output message="tns:UpdateOrInsertAvailabilityHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveCampaignCustomers">
+      <wsdl:input message="tns:SaveCampaignCustomersHttpPostIn" />
+      <wsdl:output message="tns:SaveCampaignCustomersHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="supplierFactorySoap" type="tns:supplierFactorySoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loadS">
+      <soap:operation soapAction="http://tempuri.org/loadS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loadSAvail">
+      <soap:operation soapAction="http://tempuri.org/loadSAvail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertAvailability">
+      <soap:operation soapAction="http://tempuri.org/UpdateOrInsertAvailability" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveCampaignCustomers">
+      <soap:operation soapAction="http://tempuri.org/SaveCampaignCustomers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="supplierFactorySoap12" type="tns:supplierFactorySoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loadS">
+      <soap12:operation soapAction="http://tempuri.org/loadS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loadSAvail">
+      <soap12:operation soapAction="http://tempuri.org/loadSAvail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertAvailability">
+      <soap12:operation soapAction="http://tempuri.org/UpdateOrInsertAvailability" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveCampaignCustomers">
+      <soap12:operation soapAction="http://tempuri.org/SaveCampaignCustomers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="supplierFactoryHttpGet" type="tns:supplierFactoryHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loadS">
+      <http:operation location="/loadS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loadSAvail">
+      <http:operation location="/loadSAvail" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertAvailability">
+      <http:operation location="/UpdateOrInsertAvailability" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="SaveCampaignCustomers">
+      <http:operation location="/SaveCampaignCustomers" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="supplierFactoryHttpPost" type="tns:supplierFactoryHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loadS">
+      <http:operation location="/loadS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loadSAvail">
+      <http:operation location="/loadSAvail" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertAvailability">
+      <http:operation location="/UpdateOrInsertAvailability" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="SaveCampaignCustomers">
+      <http:operation location="/SaveCampaignCustomers" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="supplierFactory">
+    <wsdl:port name="supplierFactorySoap" binding="tns:supplierFactorySoap">
+      <soap:address location="http://www.fidestin.com/supplier/supplierfactory.asmx" />
+    </wsdl:port>
+    <wsdl:port name="supplierFactorySoap12" binding="tns:supplierFactorySoap12">
+      <soap12:address location="http://www.fidestin.com/supplier/supplierfactory.asmx" />
+    </wsdl:port>
+    <wsdl:port name="supplierFactoryHttpGet" binding="tns:supplierFactoryHttpGet">
+      <http:address location="http://www.fidestin.com/supplier/supplierfactory.asmx" />
+    </wsdl:port>
+    <wsdl:port name="supplierFactoryHttpPost" binding="tns:supplierFactoryHttpPost">
+      <http:address location="http://www.fidestin.com/supplier/supplierfactory.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
