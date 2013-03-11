@@ -36,14 +36,23 @@ namespace supplierEngine
             supplier = supplierUtility.loadSupplier(4);
             return supplier;
         }
+        
+        [WebMethod]
+        public List<KeyValuePair<int,string>> loadMySupplierServices(int storeID)
+        {
+            List<KeyValuePair<int, string>> mySupplierServices = new List<KeyValuePair<int, string>>();
+            serviceUtility servUtility = new serviceUtility();
+            mySupplierServices=   servUtility.loadMyService(storeID);
+            return mySupplierServices;
+        }
 
         [WebMethod]
-        public supplierEngine.serviceUtility.serviceAvailability loadSAvail(int servID)
+        public supplierEngine.serviceUtility.serviceAvailability LoadServiceAvailabilityForWeek(int relationshipID, int weekID)
         {
             serviceUtility.serviceAvailability servAvailable = new serviceUtility.serviceAvailability();
             serviceUtility servUtility = new serviceUtility();
 
-            servAvailable = servUtility.loadAvailability(servID);
+            servAvailable = servUtility.loadAvailability(relationshipID, weekID);
             return servAvailable;
         }
 

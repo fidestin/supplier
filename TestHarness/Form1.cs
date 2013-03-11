@@ -54,7 +54,7 @@ namespace TestHarness
         {
             supplierFactory WSsupplierFactory = new supplierFactory();
 
-            serviceAvailability restoAvail = WSsupplierFactory.loadSAvail(3);
+            serviceAvailability restoAvail = WSsupplierFactory.loadSAvail(4,11);
 
         }
 
@@ -73,10 +73,21 @@ namespace TestHarness
             string[] custEmails=new string[]{"brendan.mcardle@gmail.com","brendanjmcardle@gmail.com","somecrap@gmail.com"};
 
 
-            var a = new ArrayOfString { "test" };
+            //var a = new ArrayOfString { "test" };
 
             //Save this relationship availability to table..0=INSERT
-            WSsupplierFactory.SaveCampaignEmails(34, custEmails);
+            //WSsupplierFactory.SaveCampaignEmails(34, custEmails);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            //Debug locally
+            //supplierEngine.serviceUtility servUtility = new supplierEngine.serviceUtility();
+            //List<KeyValuePair<int,string>> myServices=  servUtility.loadMyService(60);
+
+
+           supplierFactory WSsupplierFactory = new supplierFactory();
+           WSsupplierFactory.loadMySupplierServices(60);
         }
     }
 }

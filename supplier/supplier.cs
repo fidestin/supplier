@@ -153,16 +153,36 @@ namespace supplierEngine
             SQLHelp.RunQuery(sqlQuery);
         }
 
+        //public <List<KeyValuePair<int storeSupplierID,string ServiceDescription>>>
 
 
-        public serviceAvailability loadAvailability(int storeSupplierID)
+        public List<KeyValuePair<int, string>> loadMyService(int storeID)
+        {
+            List<KeyValuePair<int, string>> serviceList = new List<KeyValuePair<int, string>>();
+            SqlConnection myConnection = null;
+            string sqlQuery = " select SU.Description,S.ID from storeSupplier S INNER JOIN supplier SU on S.supplierID=SU.ID where S.storeID=" + storeID.ToString();
+            myConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Rico"].ConnectionString);
+            SqlCommand myCommand = new SqlCommand(sqlQuery, myConnection);
+            myConnection.Open();
+            myCommand.Connection = myConnection;
+            SqlDataReader myReader = null;
+            myReader = myCommand.ExecuteReader();
+            while (myReader.Read())
+            {
+                serviceList.Add(new KeyValuePair<int,string>(Convert.ToInt16(myReader["ID"].ToString()),myReader["Description"].ToString()));
+            }
+            return serviceList;
+        }
+
+
+        public serviceAvailability loadAvailability(int storeSupplierID, int weekID)
         {
             SqlConnection myConnection = null;
             serviceAvailability supplierAvailability = new serviceAvailability();
 
             //Get the supplier data first
             myConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Rico"].ConnectionString);
-            string sqlQuery = " select * from supplierAvailability where ID=" + storeSupplierID.ToString();
+            string sqlQuery = " select * from supplierAvailability where storeSupplierID=" + storeSupplierID.ToString() + " and weekID=" + weekID.ToString();
 
             SqlCommand myCommand = new SqlCommand(sqlQuery, myConnection);
             myConnection.Open();
