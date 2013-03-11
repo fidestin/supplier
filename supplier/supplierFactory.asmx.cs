@@ -18,6 +18,15 @@ namespace supplierEngine
             return "Hi dudes";
         }
 
+
+        [WebMethod]
+        public List<supplierEngine.CampaignUtility.CampaignCustomer> LoadCampaignCustomers(int campaignID)
+        {
+            CampaignUtility campaignUtility = new CampaignUtility();
+            return campaignUtility.loadCustomers(campaignID);
+        }
+
+
         [WebMethod]
         public supplierEngine.supplierUtility.Supplier loadS(int supplierID)
         {

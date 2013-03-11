@@ -199,6 +199,7 @@ namespace supplierEngine
         {
             public int campaignID { get; set; }
             public int customerID { get; set; }
+            public string customerEmail { get; set; }
 
         }
 
@@ -213,7 +214,7 @@ namespace supplierEngine
 
             //Get the supplier data first
             myConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Rico"].ConnectionString);
-            string sqlQuery = " select * from CampaignCustomer where campaignID=" + campaignID.ToString();
+            string sqlQuery = " select CA.*,CU.EMail from CampaignCustomers CA  inner join Customer CU on CA.customerID=CU.id where campaignID=" + campaignID.ToString();
 
             SqlCommand myCommand = new SqlCommand(sqlQuery, myConnection);
             myConnection.Open();
@@ -226,6 +227,7 @@ namespace supplierEngine
                 campaignCustomer = new CampaignCustomer();
                 campaignCustomer.campaignID = campaignID;
                 campaignCustomer.customerID = Convert.ToInt16(myReader["customerID"].ToString());
+                campaignCustomer.customerEmail = myReader["EMail"].ToString();
                 recipients.Add(campaignCustomer);
             }
 
